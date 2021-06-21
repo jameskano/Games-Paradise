@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Games Paradise</title>
+
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/0fa68b04a7.js" crossorigin="anonymous"></script>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Quicksand:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+    <!-- Slick -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
+
+    <!-- css stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/game-responsive.css">
+
+    <!-- Variables that needs to be stored outside the js file (because js file is going to be reloaded) -->
+    <script type="text/javascript">
+      let scrollMove = 0;
+
+      let rightPosition;
+
+      let prevScrollPosition = window.scrollY;
+    </script>
+  </head>
+  <body>
+    <!-- Header -->
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="home">
+        <a href="/"><h2>HOME</h2></a>
+      </div>
+
+      <div class="navbar-menu hide-navbar-menu">
+        <div class="">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="navbar-right">
+        <form class="" action="/search" method="post">
+          <div class="search">
+            <input type="search" name="gameName" placeholder="Search games">
+            <i class="fas fa-search"></i>
+            <div class="search-results">
+
+            </div>
+          </div>
+        </form>
+
+        <div class="navbar-info">
+          <a href="/about"><h2>ABOUT</h2></a>
+          <a href="/contact"><h2>CONTACT</h2></a>
+        </div>
+
+        <div class="menu-slider">
+          <div class="">
+            <a href="/"><h2>Home</h2></a>
+          </div>
+
+          <div class="all-games">
+            <a href="/games"><h2>All Games</h2></a>
+          </div>
+
+          <div class="new-games">
+            <h2>New Games</h2>
+            <a href="/recently-released"><i class="fas fa-hourglass-end"></i>Recently released</a>
+            <a href="/coming-soon"><i class="fas fa-step-forward"></i>Coming soon</a>
+          </div>
+
+          <div class="top-games">
+            <h2>Top Games</h2>
+            <a href="/top"><i class="fas fa-crown"></i>Top all time</a>
+            <a href="/best"><i class="fas fa-trophy"></i>Best of the year</a>
+          </div>
+
+          <div class="top-platforms">
+            <a href="/platforms"><h2>Platforms</h2></a>
+          </div>
+
+          <div class="genres">
+            <a><h2>Genres</h2></a>
+            <div class="">
+              <a href="/genres/fighting">Fighting</a>
+              <a href="/genres/shooter">Shooter</a>
+              <a href="/genres/platform">Platform</a>
+              <a href="/genres/racing">Racing</a>
+              <a href="/genres/arcade">Arcade</a>
+              <a href="/genres/real-time-strategy-rts">RTS</a>
+              <a href="/genres/role-playing-rpg">RPG</a>
+              <a href="/genres/simulator">Simulator</a>
+              <a href="/genres/sport">Sport</a>
+              <a href="/genres/strategy">Strategy</a>
+              <a href="/genres/adventure">Adventure</a>
+              <a href="/genres/music">Music</a>
+              <a href="/genres/turn-based-strategy-tbs">TBS</a>
+              <a href="/genres/card-and-board-game">Card & Board Game</a>
+              <a href="/genres/indie">Indie</a>
+              <a href="/genres/visual-novel">Visual Novel</a>
+              <a href="/genres/hack-and-slash-beat-em-up">Hack and slash</a>
+              <a href="/genres/pinball">Pinball</a>
+              <a href="/genres/quiz-trivia">Quiz-Trivia</a>
+              <a href="/genres/puzzle">Puzzle</a>
+              <a href="/genres/tactical">Tactical</a>
+              <a href="/genres/moba">MOBA</a>
+              <a href="/genres/point-and-click">Point-and-click</a>
+            </div>
+          </div>
+
+          <div class="">
+            <a href="/about"><h3>About</h3></a>
+            <a href="/contact"><h3>Contact</h3></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="main-container">
+      <div class="side-bar">
+        <div class="all-games">
+          <a href="/games"><h2>All Games</h2></a>
+        </div>
+
+        <div class="new-games">
+          <h2>New Games</h2>
+          <a href="/recently-released"><i class="fas fa-hourglass-end"></i>Recently released</a>
+          <a href="/coming-soon"><i class="fas fa-step-forward"></i>Coming soon</a>
+        </div>
+
+        <div class="top-games">
+          <h2>Top Games</h2>
+          <a href="/top"><i class="fas fa-crown"></i>Top all time</a>
+          <a href="/best"><i class="fas fa-trophy"></i>Best of the year</a>
+          <!-- <a href="/popular"><i class="fas fa-gem"></i>Popular in <%= new Date().getFullYear() %></a> -->
+        </div>
+
+        <div class="top-platforms">
+          <h2>Platforms</h2>
+          <div class="">
+            <a href="/platforms/PC">PC</a>
+            <a href="/platforms/PS4">Play Station 4</a>
+            <a href="/platforms/XONE">Xbox One</a>
+            <a href="/platforms/Switch">Nintendo Switch</a>
+            <a href="/platforms/Android">Android</a>
+            <a href="/platforms/iOS">iOS</a>
+            <a href="/platforms">More...</a>
+            <a href="/platforms">More...</a>
+          </div>
+          <button type="button" name="button"><i class="fas fa-chevron-down"></i>Show</button>
+        </div>
+
+        <div class="genres">
+          <h2>Genres</h2>
+          <div class="">
+            <a href="/genres/fighting">Fighting</a>
+            <a href="/genres/shooter">Shooter</a>
+            <a href="/genres/platform">Platform</a>
+            <a href="/genres/racing">Racing</a>
+            <a href="/genres/arcade">Arcade</a>
+            <a href="/genres/real-time-strategy-rts">RTS</a>
+            <a href="/genres/role-playing-rpg">RPG</a>
+            <a href="/genres/simulator">Simulator</a>
+            <a href="/genres/sport">Sport</a>
+            <a href="/genres/strategy">Strategy</a>
+            <a href="/genres/adventure">Adventure</a>
+            <a href="/genres/music">Music</a>
+            <a href="/genres/turn-based-strategy-tbs">TBS</a>
+            <a href="/genres/card-and-board-game">Card & Board Game</a>
+            <a href="/genres/indie">Indie</a>
+            <a href="/genres/visual-novel">Visual Novel</a>
+            <a href="/genres/hack-and-slash-beat-em-up">Hack and slash</a>
+            <a href="/genres/pinball">Pinball</a>
+            <a href="/genres/quiz-trivia">Quiz-Trivia</a>
+            <a href="/genres/puzzle">Puzzle</a>
+            <a href="/genres/tactical">Tactical</a>
+            <a href="/genres/moba">MOBA</a>
+            <a href="/genres/point-and-click">Point-and-click</a>
+          </div>
+          <button type="button" name="button"><i class="fas fa-chevron-down"></i>Show</button>
+        </div>
+      </div>
+
+      <div class="game-box">
+        <div class="game-header">
+          <% if(data[0].cover != undefined) { %>
+            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/<%= data[0].cover.image_id %>.jpg" alt="">
+          <% }
+          else { %>
+            <img src="img/no-image.jpg" alt="">
+          <% } %>
+
+          <div class="">
+            <h1><%= data[0].name %></h1>
+
+            <div class="">
+              <% if(data[0].first_release_date != undefined) { %>
+                <p><%= new Date(data[0].first_release_date * 1000).toLocaleString("en-US", {month: "short"}) %>-<%= new Date(data[0].first_release_date * 1000).toLocaleString("en-US", {day: "numeric"}) %>-<%= new Date(data[0].first_release_date * 1000).toLocaleString("en-US", {year: "numeric"}) %></p>
+              <% }
+              else { %>
+                <p></p>
+              <% } %>
+
+              <% if(data[0].total_rating != undefined) { %>
+                <div class="rating-num">
+                  <div class="">
+                    <p><%= data[0].total_rating.toFixed(0) %></p>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-body">
+          <div class="game-body-left">
+            <div class="summary">
+              <p><%= data[0].summary %></p>
+              <a></a>
+            </div>
+
+            <div class="genres-and-platforms">
+              <% if(data[0].genres != undefined) { %>
+                <div class="genres-info">
+                  <p>Genres</p>
+                  <% data[0].genres.forEach(genre => { %>
+                    <a href="/genres/<%= genre.slug %>"><%= genre.name %>,</a>
+                  <% }) %>
+                </div>
+              <% } %>
+
+              <% if(data[0].platforms != undefined) { %>
+                <div class="platforms-info">
+                  <p>Platforms</p>
+                  <% data[0].platforms.forEach(platform => { %>
+                    <a href="/platforms/<%= platform.abbreviation %>"><%= platform.name %>,</a>
+                  <% }) %>
+                </div>
+              <% } %>
+            </div>
+
+            <% if(data[0].involved_companies != undefined) { %>
+              <div class="company">
+                <div class="publisher">
+                  <p>Publisher</p>
+                  <% data[0].involved_companies.forEach(company => { %>
+                    <% if(company.publisher) { %>
+                      <p><%= company.company.name %></p>
+                    <% }
+                    else { %>
+                      <p></p>
+                    <% } %>
+                  <% }) %>
+                </div>
+
+                <div class="developer">
+                  <p>Developer</p>
+                  <% data[0].involved_companies.forEach(company => { %>
+                    <% if(company.developer) { %>
+                      <p><%= company.company.name %></p>
+                    <% }
+                    else { %>
+                      <p></p>
+                    <% } %>
+                  <% }) %>
+                </div>
+              </div>
+            <% } %>
+
+            <% if(data[0].total_rating != undefined) { %>
+              <div class="rating">
+                <div class="total-rating">
+                  <p>Total rating</p>
+                  <p><%= data[0].total_rating.toFixed(0) %></p>
+                </div>
+
+                <div class="rating-count">
+                  <p>Rating count</p>
+                  <p><%= data[0].total_rating_count %> ratings</p>
+                </div>
+              </div>
+            <% } %>
+          </div>
+
+          <div class="game-body-right">
+            <% if(data[0].websites != undefined) { %>
+              <div class="websites">
+                <% data[0].websites.forEach(web => { %>
+                  <a class="web" href="<%= web.url %>" target="_blank">
+                    <img src="img/websites/<%= web.category %>.png" alt="">
+                    <p></p>
+                  </a>
+                <% }) %>
+              </div>
+            <% } %>
+          </div>
+        </div>
+
+        <% if(data[0].videos != undefined && data[0].screenshots != undefined) { %>
+          <div class="media-container">
+            <div class="media single-item">
+              <% if(data[0].videos != undefined) {
+                data[0].videos.forEach(video => { %>
+                  <iframe src="https://www.youtube.com/embed/<%= video.video_id %>" width="" height="" frameborder="0" allowfullscreen></iframe>
+                <% })
+              } %>
+              <% if(data[0].screenshots != undefined) {
+                data[0].screenshots.forEach(img => { %>
+                  <div class="">
+                    <img src="https://images.igdb.com/igdb/image/upload/t_thumb_widescreen_large/<%= img.image_id %>.jpg" alt="">
+                  </div>
+                <% })
+              } %>
+            </div>
+          </div>
+        <% } %>
+
+        <% if(data[0].similar_games != undefined) { %>
+          <div class="similar-games-container">
+            <h2>SIMILAR GAMES</h2>
+            <hr>
+            <div class="similar-games multiple-items">
+              <% data[0].similar_games.forEach((similar) => { %>
+                <div class="similar">
+                  <a href="/<%= similar.id %>" class="game-form">
+                    <% if(similar.cover != undefined) { %>
+                      <div class="cover">
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/<%= similar.cover.image_id %>.jpg" alt="">
+                      </div>
+                    <% }
+                    else { %>
+                      <div class="cover">
+                        <img src="img/no-image.jpg" alt="">
+                      </div>
+                    <% } %>
+                    <div class="info">
+                      <p><%= similar.name %></p>
+                    </div>
+                  </a>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+        <% } %>
+
+        <!-- Copyright -->
+        <p class="cr">© 2021 Jaime Canovas. All rights reserved.</p>
+      </div>
+    </div>
+
+    <div class="background"></div>
+    <img class="background-img" src="" alt="">
+
+    <!-- <i class="far fa-arrow-alt-circle-up fa-2x button-up"></i> -->
+
+
+    <!-- js file -->
+    <script src="js/index.js" charset="utf-8"></script>
+    <!-- <script src="/js/sidebar-scroll.js" charset="utf-8"></script> -->
+    <script src="js/game.js" charset="utf-8"></script>
+    <script src="js/autocomplete.js" charset="utf-8"></script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+}
+
+.header-info {
+  width: 50%;
+  min-width: 700px;
+  max-width: 1200px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.container {
+  width: 50%;
+  min-width: 700px;
+  max-width: 1200px;
+}
+
+.container h1 {
+  color: white;
+  font-size: 4rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.container p, .container li {
+  color: white;
+  font-size: 1rem;
+  font-family: "Quicksand", sans-serif;
+}
+
+.container ul {
+  margin-bottom: 50px;
+}
+
+.contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.contact-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 49%;
+  height: 150px;
+}
+
+.contact-user input {
+  width: 100%;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 20px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  background-color: #4d4d4d;
+  color: #cccccc;
+}
+
+.contact-message {
+  width: 49%;
+  height: 150px;
+}
+
+.contact-message textarea {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  background-color: #4d4d4d;
+  color: #cccccc;
+}
+
+.contact-user input:hover, .contact-user input:focus, .contact-message textarea:hover, .contact-message textarea:focus {
+  outline: 0;
+  background-color: white;
+  color: black;
+}
+
+::-webkit-input-placeholder {
+  color: #999999;
+}
+
+::-moz-placeholder {
+  color: #999999;
+}
+
+:-ms-input-placeholder {
+  color: #999999;
+}
+
+::-ms-input-placeholder {
+  color: #999999;
+}
+
+::placeholder {
+  color: #999999;
+}
+
+button {
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 25px;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  background-color: white;
+}
+
+button:hover {
+ background-color: #cccccc;
+}
+
+.cr {
+  color: #cccccc;
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 10px;
+}

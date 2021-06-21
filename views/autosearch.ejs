@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% results.forEach(data => { %>
+      <a href="<%= data.id %>">
+        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/<%= data.cover.image_id %>.jpg" alt="">
+        <p><%= data.name %></p>
+      </a>
+    <% }) %>
+  </body>
+</html>
